@@ -7,5 +7,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'DCC Prototype';
+  progressTitle = 'Switch Request Received';
+  progressValue = 50;
+  value = 50;
+
+  public setValue(value: number): void {
+
+    this.value = value;
+
+  }
 }

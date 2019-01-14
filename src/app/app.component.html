@@ -1,14 +1,22 @@
-<div style="text-align:center">
-  <h1>
-   {{ title }}
-  </h1>
- <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Example of Supplier Status : </h2>
-<div>
-  <button type="button" class="btn btn-primary">button</button>
-  Supplier one: <div class="active"></div><br />
-  Supplier two: <div class="inactive"></div>
-</div>
+<div class="container">
+  <div class="jumbotron">
+    <h2>Example of Supplier Status Demo</h2>
+  </div>
+  <ng-template ngFor let-i [ngForOf]="[ 0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100 ]">
+    <button class="btn btn-primary" (click)="setValue( i )" [class.selected]="( i === value )">
+    {{ i }}
+    </button>
+  </ng-template>
 
-<router-outlet></router-outlet>
+  <!-- <button type="button" class="btn btn-primary">Request Switch</button> -->
+  <div class="panel panel-primary">
+    <div class="panel-heading">Status</div>
+    <div class="panel-body">
+      <h3>Switch Progress:</h3>
+      <div class="progress">
+        <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuemin="0" aria-valuemax="100" [style.width.%]="value">{{value}}</div>
+      </div>
+      <div><h3>Status:{{progressTitle}}</h3></div>
+    </div>
+  </div>
+</div>
